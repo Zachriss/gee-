@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Dearest Gee - I'm Sorry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffafcc, #ffc8dd, #cdb4db);
+            color: #590d22;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px;
+            padding-top: 100px;
+        }
+        
+        /* ===== NAVIGATION BAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(166, 19, 60, 0.1);
+            z-index: 1000;
+            padding: 15px 20px;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #a4133c;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-logo i {
+            margin-right: 10px;
+            color: #ff4d6d;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 30px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #800f2f;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            background-color: #ffccd5;
+            color: #a4133c;
+        }
+        
+        .nav-link.active {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        
+        .nav-link i {
+            margin-right: 8px;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: #a4133c;
+        }
+        
+        /* ===== MAIN CONTAINER ===== */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header Section */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            animation: fadeInDown 1.5s ease-out;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #a4133c;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .heart-icon {
+            color: #ff4d6d;
+            font-size: 2.5rem;
+            margin: 0 10px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-top: 10px;
+            color: #800f2f;
+        }
+        
+        /* Apology Message Section */
+        .message-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(166, 19, 60, 0.2);
+            animation: fadeInUp 1.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #ff4d6d, #ff8fa3, #ff4d6d);
+        }
+        
+        .gee-name {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #a4133c;
+            margin-bottom: 20px;
+        }
+        
+        .message-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .highlight {
+            color: #ff4d6d;
+            font-weight: 600;
+        }
+        
+        .apology-note {
+            background: linear-gradient(45deg, #ff8fa3, #ffccd5);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #590d22;
+            position: relative;
+            animation: pulse 3s infinite;
+        }
+        
+        .apology-note::after {
+            content: "\f004";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            color: rgba(89, 13, 34, 0.2);
+            font-size: 2.5rem;
+        }
+        
+        /* Apology Icons Section */
+        .icons-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+            animation: fadeIn 2s ease-out;
+        }
+        
+        .icon-item {
+            text-align: center;
+            width: 200px;
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(166, 19, 60, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .icon-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .icon-item i {
+            font-size: 3rem;
+            color: #ff4d6d;
+            margin-bottom: 15px;
+        }
+        
+        .icon-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #800f2f;
+        }
+        
+        /* Memory Section */
+        .memory-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(166, 19, 60, 0.2);
+        }
+        
+        .memory-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #a4133c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .memory-item {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            padding: 15px;
+            background-color: #ffccd5;
+            border-radius: 15px;
+        }
+        
+        .memory-icon {
+            font-size: 2.5rem;
+            color: #a4133c;
+            margin-right: 20px;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #800f2f;
+            animation: fadeIn 2.5s ease-out;
+        }
+        
+        .hearts-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .floating-heart {
+            color: #ff4d6d;
+            margin: 5px 10px;
+            font-size: 1.5rem;
+            animation: float 3s infinite ease-in-out;
+        }
+        
+        .floating-heart:nth-child(2) { animation-delay: 0.5s; }
+        .floating-heart:nth-child(3) { animation-delay: 1s; }
+        .floating-heart:nth-child(4) { animation-delay: 1.5s; }
+        .floating-heart:nth-child(5) { animation-delay: 2s; }
+        
+        /* Promise Section */
+        .promise-section {
+            background: linear-gradient(45deg, #ffccd5, #ffafcc);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .promise-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #a4133c;
+            margin-bottom: 20px;
+        }
+        
+        .promise-item {
+            display: inline-block;
+            background-color: white;
+            padding: 15px 25px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(166, 19, 60, 0.1);
+        }
+        
+        /* Page Sections (for navigation) */
+        .page-section {
+            display: none;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+        
+        /* About & Contact Sections */
+        .about-section, .contact-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(166, 19, 60, 0.2);
+        }
+        
+        .about-section h2, .contact-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #a4133c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            text-align: center;
+            margin: 15px;
+            padding: 20px;
+            background-color: #ffccd5;
+            border-radius: 15px;
+            width: 250px;
+        }
+        
+        .contact-item i {
+            font-size: 2.5rem;
+            color: #a4133c;
+            margin-bottom: 15px;
+        }
+        
+        /* Button */
+        .reconcile-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 40px;
+            background: linear-gradient(to right, #ff4d6d, #ff8fa3);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+        
+        .reconcile-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 77, 109, 0.6);
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 77, 109, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 77, 109, 0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .gee-name { font-size: 2.8rem; }
+            .message-section, .memory-section { padding: 25px; }
+            .apology-note { font-size: 1.7rem; }
+            
+            /* Responsive Navbar */
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background-color: rgba(255, 255, 255, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 20px rgba(166, 19, 60, 0.1);
+                border-radius: 0 0 15px 15px;
+                padding: 20px 0;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: 15px 0;
+            }
+            
+            .nav-link {
+                display: inline-block;
+                width: 80%;
+                padding: 12px;
+            }
+            
+            .memory-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .memory-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2.5rem; }
+            .gee-name { font-size: 2.3rem; }
+            .message-text { font-size: 1.1rem; }
+            .icon-item { width: 100%; }
+            body { padding-top: 80px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <i class="fas fa-heart"></i> For Gee
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active" data-section="home">
+                        <i class="fas fa-home"></i> My Apology
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#memories" class="nav-link" data-section="memories">
+                        <i class="fas fa-memory"></i> Our Memories
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#promises" class="nav-link" data-section="promises">
+                        <i class="fas fa-handshake"></i> My Promises
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link" data-section="contact">
+                        <i class="fas fa-envelope"></i> Let's Talk
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Home Section (Apology Content) -->
+        <section id="home" class="page-section active">
+            <header>
+                <h1>To My Dearest <span class="heart-icon">❤</span> Gee</h1>
+                <p class="subtitle">A heartfelt apology and request for another chance</p>
+            </header>
+            
+            <section class="message-section">
+                <h2 class="gee-name">Dear Gee</h2>
+                
+                <p class="message-text">
+                    I'm writing this with a heavy heart full of regret. I know I made mistakes that hurt you, and for that, I am truly, deeply sorry. Every day without you feels empty, and I realize now more than ever how much you mean to me.
+                </p>
+                
+                <div class="apology-note">
+                    I'm sorry for everything. Please give me another chance.
+                </div>
+                
+                <p class="message-text">
+                    You are the most amazing person I've ever known. Your name, <span class="highlight">Gee</span>, means everything to me. You brought light into my life, and I was foolish to ever take that for granted. Your strength, your kindness, your beautiful smile - these are things I think about every single day.
+                </p>
+                
+                <p class="message-text">
+                    I understand that trust needs to be rebuilt, and I'm willing to put in the work. I've been reflecting on my mistakes and I promise to be better - to be the person you deserve. Our separation has taught me how precious what we had really was.
+                </p>
+                
+                <p class="message-text">
+                    This website is my way of showing you how serious I am about making things right. Every word here comes from the deepest part of my heart. I still love you more than words can express, and I believe in us, in what we had, and in what we could have again.
+                </p>
+            </section>
+            
+            <section class="icons-section">
+                <div class="icon-item">
+                    <i class="fas fa-heart-crack"></i>
+                    <h3 class="icon-title">I'm Sorry</h3>
+                    <p>For all the pain I caused you</p>
+                </div>
+                
+                <div class="icon-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3 class="icon-title">I Still Care</h3>
+                    <p>My feelings for you never faded</p>
+                </div>
+                
+                <div class="icon-item">
+                    <i class="fas fa-users"></i>
+                    <h3 class="icon-title">I Believe in Us</h3>
+                    <p>Our connection was special and real</p>
+                </div>
+                
+                <div class="icon-item">
+                    <i class="fas fa-redo"></i>
+                    <h3 class="icon-title">I Want to Try Again</h3>
+                    <p>To do things right this time</p>
+                </div>
+            </section>
+            
+            <button class="reconcile-btn" id="reconcileBtn">
+                <i class="fas fa-heart"></i> Let's Start Over
+            </button>
+        </section>
+        
+        <!-- Memories Section -->
+        <section id="memories" class="page-section memory-section">
+            <h2>Our Beautiful Memories</h2>
+            
+            <div class="memory-item">
+                <div class="memory-icon">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <div>
+                    <h3>Your Laughter</h3>
+                    <p class="message-text">I miss the sound of your laughter more than anything. It was the most beautiful sound in the world to me.</p>
+                </div>
+            </div>
+            
+            <div class="memory-item">
+                <div class="memory-icon">
+                    <i class="fas fa-conversation"></i>
+                </div>
+                <div>
+                    <h3>Our Conversations</h3>
+                    <p class="message-text">Talking with you for hours about everything and nothing. You always understood me like no one else.</p>
+                </div>
+            </div>
+            
+            <div class="memory-item">
+                <div class="memory-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div>
+                    <h3>The Way You Cared</h3>
+                    <p class="message-text">You had this incredible way of making me feel loved and important. I took that for granted, and I'm so sorry.</p>
+                </div>
+            </div>
+            
+            <div class="memory-item">
+                <div class="memory-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div>
+                    <h3>Your Beautiful Spirit</h3>
+                    <p class="message-text">You're not just beautiful on the outside - you have the most beautiful soul I've ever encountered.</p>
+                </div>
+            </div>
+            
+            <div class="apology-note">
+                These memories are precious to me. I don't want them to be just memories.
+            </div>
+        </section>
+        
+        <!-- Promises Section -->
+        <section id="promises" class="page-section promise-section">
+            <h2>My Promises to You</h2>
+            
+            <div class="promise-item">
+                <i class="fas fa-check-circle"></i> I will listen more
+            </div>
+            <div class="promise-item">
+                <i class="fas fa-check-circle"></i> I will be more patient
+            </div>
+            <div class="promise-item">
+                <i class="fas fa-check-circle"></i> I will communicate better
+            </div>
+            <div class="promise-item">
+                <i class="fas fa-check-circle"></i> I will appreciate you every day
+            </div>
+            <div class="promise-item">
+                <i class="fas fa-check-circle"></i> I will be more understanding
+            </div>
+            <div class="promise-item">
+                <i class="fas fa-check-circle"></i> I will never take you for granted
+            </div>
+            <div class="promise-item">
+                <i class="fas fa-check-circle"></i> I will work on myself
+            </div>
+            <div class="promise-item">
+                <i class="fas fa-check-circle"></i> I will always be honest with you
+            </div>
+            
+            <div class="apology-note" style="margin-top: 30px;">
+                These aren't just words - they're commitments from my heart.
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="page-section contact-section">
+            <h2>Let's Talk Again</h2>
+            <p class="message-text">
+                Gee, I know I don't deserve your time, but if you're willing to give me just a few minutes to talk, I would be forever grateful. I'm not asking you to forget what happened - just to consider giving us another chance to create something beautiful again.
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-heart"></i>
+                    <h3>My Heart</h3>
+                    <p>Still belongs to you, always will</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-comments"></i>
+                    <h3>My Messages</h3>
+                    <p>Always open when you're ready</p>
+                </div>
+                
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>My Time</h3>
+                    <p>Will always be yours</p>
+                </div>
+            </div>
+            
+            <div class="apology-note" style="margin-top: 30px;">
+                I'm here when you're ready to talk. No pressure, no expectations - just hope.
+            </div>
+            
+            <button class="reconcile-btn" id="contactBtn">
+                <i class="fas fa-envelope"></i> I'm Ready to Listen
+            </button>
+        </section>
+        
+        <footer>
+            <div class="hearts-container">
+                <div class="floating-heart">❤</div>
+                <div class="floating-heart">💔</div>
+                <div class="floating-heart">❤️‍🩹</div>
+                <div class="floating-heart">💕</div>
+                <div class="floating-heart">❤</div>
+            </div>
+            
+            <p>I Created with love, regret, and hope for reconciliation</p>
+            <p>You are unforgettable, irreplaceable, and deeply missed</p>
+            <p style="margin-top: 20px; font-size: 0.8rem;">Every day without you reminds me of what I lost</p>
+            <p>&copy;2025 All Right Reserved <br> Designed & Developed by Zachriss</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ===== NAVIGATION FUNCTIONALITY =====
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageSections = document.querySelectorAll('.page-section');
+            
+            // Toggle mobile menu
+            hamburger.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                const icon = hamburger.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Handle navigation clicks
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetSection = this.getAttribute('data-section');
+                    
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    pageSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === targetSection) {
+                            section.classList.add('active');
+                        }
+                    });
+                    
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        const icon = hamburger.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                    
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+            });
+            
+            // ===== RECONCILE BUTTONS =====
+            const reconcileBtn = document.getElementById('reconcileBtn');
+            const contactBtn = document.getElementById('contactBtn');
+            
+            reconcileBtn.addEventListener('click', function() {
+                const messages = [
+                    "Gee, I know I hurt you, but I promise to spend every day making it up to you if you give me another chance.",
+                    "I can't change the past, but I can promise you a better future. A future where I appreciate you every single day.",
+                    "You are worth fighting for. You are worth changing for. You are worth everything to me.",
+                    "Let's create new memories, better memories, where I show you through my actions how much you mean to me."
+                ];
+                
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                alert("💌 Message to Gee:\n\n" + randomMessage + "\n\nWith all my love and hope...");
+                
+                // Create heart explosion animation
+                for (let i = 0; i < 20; i++) {
+                    setTimeout(() => createHeartAnimation(), i * 100);
+                }
+            });
+            
+            contactBtn.addEventListener('click', function() {
+                alert("📱 To Gee:\n\nWhenever you're ready to talk, I'll be here waiting. No pressure, just an open heart and a listening ear. You can reach out anytime, and I'll respond with understanding and respect.");
+            });
+            
+            // ===== HEART ANIMATIONS =====
+            function createFloatingHeart() {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.style.position = 'fixed';
+                heart.style.color = '#ff4d6d';
+                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+                heart.style.opacity = Math.random() * 0.5 + 0.3;
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '100vh';
+                heart.style.zIndex = '-1';
+                heart.style.pointerEvents = 'none';
+                document.body.appendChild(heart);
+                
+                const duration = Math.random() * 5 + 5;
+                const animation = heart.animate([
+                    { transform: 'translateY(0) rotate(0deg)', opacity: heart.style.opacity },
+                    { transform: `translateY(-100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+                });
+                
+                animation.onfinish = () => heart.remove();
+            }
+            
+            function createHeartAnimation() {
+                const heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.style.position = 'fixed';
+                heart.style.color = '#ff4d6d';
+                heart.style.fontSize = '25px';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.zIndex = '1000';
+                heart.style.pointerEvents = 'none';
+                document.body.appendChild(heart);
+                
+                const animation = heart.animate([
+                    { transform: 'scale(0) rotate(0deg)', opacity: 1 },
+                    { transform: 'scale(2) rotate(180deg)', opacity: 0 }
+                ], {
+                    duration: 1500,
+                    easing: 'ease-out'
+                });
+                
+                animation.onfinish = () => heart.remove();
+            }
+            
+            // Create initial hearts
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => createFloatingHeart(), i * 300);
+            }
+            
+            setInterval(createFloatingHeart, 2000);
+            
+            // Add click effect - hearts appear where user clicks
+            document.addEventListener('click', function(e) {
+                if (e.target.closest('.nav-link') || e.target.closest('.hamburger') || 
+                    e.target.closest('.reconcile-btn')) {
+                    return;
+                }
+                
+                const clickHeart = document.createElement('div');
+                clickHeart.innerHTML = '❤';
+                clickHeart.style.position = 'fixed';
+                clickHeart.style.color = '#ff4d6d';
+                clickHeart.style.fontSize = '25px';
+                clickHeart.style.left = e.clientX - 12.5 + 'px';
+                clickHeart.style.top = e.clientY - 12.5 + 'px';
+                clickHeart.style.zIndex = '1000';
+                clickHeart.style.pointerEvents = 'none';
+                document.body.appendChild(clickHeart);
+                
+                const clickAnimation = clickHeart.animate([
+                    { transform: 'scale(1)', opacity: 1 },
+                    { transform: 'scale(2)', opacity: 0 }
+                ], {
+                    duration: 1000,
+                    easing: 'ease-out'
+                });
+                
+                clickAnimation.onfinish = () => clickHeart.remove();
+            });
+            
+            // Add a special message when Gee's name is clicked
+            const geeName = document.querySelector('.gee-name');
+            geeName.addEventListener('click', function() {
+                const messages = [
+                    "Gee, saying your name still makes my heart skip a beat.",
+                    "I miss the way your name felt when I said it to you.",
+                    "Gee... just three letters that mean everything to me.",
+                    "Your name will always be the most beautiful word to me."
+                ];
+                const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+                alert(randomMsg);
+            });
+        });
+    </script>
+</body>
+</html>
